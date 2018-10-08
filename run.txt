@@ -1,0 +1,5 @@
+mongod --dbpath data/db --auth
+mongo  -u Ben --authenticationDatabase admin -p
+
+
+Ben woaiMONGODB233
