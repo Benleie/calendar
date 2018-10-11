@@ -12,9 +12,8 @@ var p1 = new Promise((resolve, reject) => {
 })
 
 p1.then( data =>{
-	// console.log(data[0].item)
 	data.map(doc => {
-		console.log(doc.item)
+		console.log(doc.size)
 	})
 })
 // console.log(typeof inventData)

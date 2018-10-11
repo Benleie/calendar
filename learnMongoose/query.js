@@ -12,7 +12,6 @@ mongoose.connect('mongodb://localhost:27017/tes', option);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-	console.log("ok")
 
 	var kittySchema = new mongoose.Schema({
 		name: String
@@ -20,38 +19,43 @@ db.once('open', function() {
 
 	kittySchema.methods.speak = function() {
 		var greeting = this.name ?
-			"Meow name is " + this.name :
+			this.name + " has been created successfully":
 			"I don't have a name";
 		console.log(greeting);
 	}
 
 	var Kitten = mongoose.model('Kitten', kittySchema);
 
-	var silence = new Kitten({
-		name: 'Silence'
-	});
-	console.log(silence.name);
+	
 
-	var fluffy = new Kitten({
-		name: 'fluffy'
-	});
-
-	fluffy.save(function(err, fluffy) {
-		if (err) return console.error(err);
-		fluffy.speak();
-	});
-
-	//另一种
-	Kitten.insertMany([{ name: 'Silence' }], function(err, kittens){
-		if (err) return console.error(err);
-		// kittens.speak();
-		console.log(kittens)
-	})
-
-	//查找document
-	Kitten.find(function(err, kittens) {
+	//查找所有document
+	/*Kitten.find(function(err, kittens) {
 		if (err) return console.error(err);
 		console.log(kittens);
-	})
+	})*/
+	var Arya = new Kitten({ name: "Arya" });
+	var Robb = new Kitten({ name: "Robbb" })
+
+	var createOnce = function(doc){
+		var promise = Kitten.find({ name: doc.name }).exec();
+		promise.then( docs => {
+			if(!docs.length) {
+				doc.save(err => {
+					if (err) return console.error(err);
+					doc.speak();
+				})
+			}
+			else
+				console.log("this doc has been created!")
+		})
+	}
+
+
+	createOnce(Robb);
+
+	Kitten.find({ name: "Robbb"}, function(err,kittens){
+		if (err) return console.error(err);
+		console.log(kittens); 
+	});
 
 });
