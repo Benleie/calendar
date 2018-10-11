@@ -1,8 +1,5 @@
 
-
-db.calendar.find({Open: 10789.72})
-
-db.calendar.find({ Date: { $regex: /^2010-09-0/ }})
+mongod --dbpath hhh/data/db
 
 
 
@@ -16,17 +13,18 @@ db.calendar.find({ Date: { $regex: /^2010-09-0/ }})
 
 
 
-mongoimport --db test --collection calendar --authenticationDatabase test --username Arya --password 777 --drop --file ./data/dji.csv --type csv --headerline
 
-mongoexport -d test -c inventory -u Arya -p 777  -o bad.csv --type csv -f item,qty,status,size.w
+post.created_at
+```
+	  .addCreatedAt()
+      .addCommentsCount()
+```
 
-mongo  -u Ben --authenticationDatabase admin -p
+req.fields.title
+req.fields.content
 
-db.auth("Arya","777")
 
 
-不知归期的故人
-只要平
-听说
+并不是很懂CRUD中的$set,$inc是怎么一回事  Operator
 
 08:30  09:15  10:00 

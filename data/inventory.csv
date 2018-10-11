@@ -1,0 +1,6 @@
+item,qty,size,h,w,uom,status
+journal,25,"{""h"":14,""w"":21,""uom"":""cm""}",,,,A
+planner,75,"{""h"":22.85,""w"":30,""uom"":""cm""}",,,,D
+paper,100,"{""h"":8.5,""w"":11,""uom"":""in""}",,,,D
+notebook,50,"{""h"":8.5,""w"":11,""uom"":""in""}",,,,A
+postcard,45,"{""h"":10,""w"":15.25,""uom"":""cm""}",,,,A
